@@ -1,0 +1,9 @@
+<ol>
+  <li ng-repeat="item in narrowCtrl.items">
+    <div>
+      {{ item.name }}
+        <button class="btn btn-primary" ng-click="narrowCtrl.onRemove({index: $index});">Don't want this one!</button>
+  </div>
+  </li>
+</ol>
+<div class="error" ng-if="narrowCtrl.items.length == 0" >Nothing found</div>
