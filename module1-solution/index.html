@@ -1,32 +1,35 @@
 <!doctype html>
-<html lang="en" ng-app = "LunchCheck">
+<html lang="en">
   <head>
     <title>Lunch Checker</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script type="text/javascript" src="angular.min.js"></script>
-    <script type="text/javascript" src="app.js"></script>
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     <style>
       .message { font-size: 1.3em; font-weight: bold; }
     </style>
+    <script src="scripts/angular.min.js"></script>
+    <script src="scripts/app.js"></script>
   </head>
-<body>
-   <div class="container">
+<body ng-app = "LunchCheck">
+   <div class="container" ng-controller ="LunchCheckerController">
      <h1>Lunch Checker</h1>
-     <div ng-controller = "LunchCheckController">
-       <div class="form-group">
-           <input id="lunch-menu" type="text"
-           placeholder="list comma separated dishes you usually have for lunch"
-           class="form-control" ng-model = "lunchList">
-       </div>
-       <div class="form-group">
-           <button class="btn btn-default" ng-click= "checkLunch()">Check If Too Much</button>
-       </div>
-       <div class="form-group message {{color}}">
-         {{message}}
-         <!-- Your message can go here. -->
-       </div>
-     </div>
+
+         <div class="form-group">
+             <input id="lunch-menu" type="text"
+             placeholder="list comma separated dishes you usually have for lunch"
+             class="form-control"
+             ng-model="listOfLunchItems">
+         </div>
+         <div class="form-group">
+             <button ng-click="checkIfTooMuch();" class="btn btn-default">Check If Too Much</button>
+         </div>
+         <div class="form-group message has-success">
+           <span class="help-block">{{userMessage}}</span>
+         </div>
+         <div class="form-group message has-error">
+           <span class="help-block">{{errorMessage}}</span>
+         </div>
    </div>
+
 </body>
 </html>
